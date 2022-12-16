@@ -2,7 +2,7 @@ import { Button } from "./components/Button"
 import { useState } from "react"
 
 export function Calculator(){
-  const [click,setClick]=useState(false)
+  
 
   return (
     <div className="container space-y-[25%] h-[75%] min-h-[400px] w-[25%] min-w-[300px] rounded-md  bg-black my-10">
