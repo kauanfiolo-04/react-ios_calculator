@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Button } from "./components/Button"
 
 export function Calculator(){
-  const[result, setResult]=useState('')
+  const [result, setResult]=useState('')
 
   const handleChange=(e)=>{
     console.log(e)
@@ -11,7 +11,7 @@ export function Calculator(){
   }
 
   const handleClear=()=>{
-    setResult('')
+    setResult(result.substring(0,result.length-1))
   }
 
   const handlePercent=()=>{
@@ -30,8 +30,7 @@ export function Calculator(){
     }
   }
 
-
-  
+ 
 
   return (
     <div className="container space-y-[25%] md:h-[70%] h-[600px] md:w-[20%] w-[300px]  rounded-md  bg-black my-10
@@ -42,7 +41,8 @@ export function Calculator(){
       </div>
 
       <div className='w-[100%] h-[60%] grid grid-cols-4 space-x-1'>
-        <Button value='AC'  type="idk" handleChange={handleClear}/>
+        <Button value={result.length!==0 ? 'D' : 'AC'}  
+        type="idk" handleChange={handleClear}/>
         <Button value='+/-' type="idk" handleChange={handleSLA}/>
         <Button value='%'  type="idk" handleChange={handlePercent}/>
         <Button value='/' type="op" handleChange={handleChange}/>
